@@ -1,0 +1,9 @@
+/* Grid */
+.grid-subjects      → Auto-fit (200px min)
+                    → 1 column (Mobile)
+                    → 2 columns (Tablet)
+                    → 4 columns (Desktop)
+
+/* Container */
+.container          → Max-width: 1200px
+.container-narrow   → Max-width: 900px
