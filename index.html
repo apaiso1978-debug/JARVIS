@@ -1,154 +1,18 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IDLPMS - ระบบจัดการแผนการสอนดิจิทัล</title>
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Theme CSS Files (เช็คว่าอัปครบใน css/) -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/pages/landing.css">
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 2V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 7H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span>IDLPMS</span>
-        </a>
-        <a href="auth/login.html" class="btn btn-secondary">เข้าสู่ระบบ</a>
-      </div>
-    </div>
-  </header>
+<link rel="stylesheet" href="css/pages/landing.css">
+```
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container-narrow">
-      <h1 class="hero-title">จัดการแผนการสอนแบบดิจิทัล</h1>
-      <p class="hero-subtitle">ลดเวลาเตรียมสอน เพิ่มคุณภาพการเรียนรู้</p>
-      <p class="hero-description">
-        ระบบที่ช่วยครูประหยัดเวลาในการเตรียมการสอน พร้อมเครื่องมือครบครันสำหรับการจัดการเรียนการสอนยุคดิจิทัล
-      </p>
-      <div class="hero-cta">
-        <a href="auth/register.html" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-small">
-            <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          เริ่มใช้งานฟรี
-        </a>
-        <a href="#features" class="btn btn-secondary">เรียนรู้เพิ่มเติม</a>
-      </div>
-    </div>
-  </section>
+### **2. css/pages/landing.css:**
+- เอา CSS ทั้งหมดจาก `<style>` มาใส่ไฟล์นี้
+- มี Comment แบ่งส่วนชัดเจน
+- Responsive ครบ
 
-  <!-- Stats Section -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card card">
-          <div class="stat-number">85%</div>
-          <div class="stat-label">ครูผ่านเกณฑ์การประเมิน</div>
-        </div>
-        <div class="stat-card card">
-          <div class="stat-number">-40%</div>
-          <div class="stat-label">ลดเวลาเตรียมการสอน</div>
-        </div>
-        <div class="stat-card card">
-          <div class="stat-number">4.5/5</div>
-          <div class="stat-label">คะแนนความพึงพอใจ</div>
-        </div>
-      </div>
-    </div>
-  </section>
+---
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2 class="section-title">คุณสมบัติเด่น</h2>
-      <p class="section-subtitle">ทุกสิ่งที่ครูต้องการในที่เดียว</p>
-      <div class="features-grid">
-        <div class="feature-card card">
-          <div class="feature-icon icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">แผนการสอนพร้อมใช้</h3>
-          <p class="feature-description">
-            แผนการสอนครบทั้ง 10 วิชา สำหรับ ป.1-6 พร้อมมาตรฐานและตัวชี้วัด สามารถปรับแต่งได้ตามต้องการ
-          </p>
-        </div>
-        <div class="feature-card card">
-          <div class="feature-icon icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.75 10.5L20.4697 5.78033C20.9421 5.30786 21.1783 5.07163 21.3896 5.05567C21.5749 5.04163 21.7571 5.11465 21.8808 5.25605C22.0236 5.41871 22.0236 5.74491 22.0236 6.39732V17.6027C22.0236 18.2551 22.0236 18.5813 21.8808 18.744C21.7571 18.8854 21.5749 18.9584 21.3896 18.9443C21.1783 18.9284 20.9421 18.6921 20.4697 18.2197L15.75 13.5M3.75 16.5H12.75C13.9426 16.5 14.5 15.9404 14.5 14.75V9.25C14.5 8.05964 13.9426 7.5 12.75 7.5H3.75C2.55964 7.5 2 8.05964 2 9.25V14.75C2 15.9404 2.55964 16.5 3.75 16.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">เชื่อมต่อสื่อการสอน</h3>
-          <p class="feature-description">
-            เชื่อมโยงวิดีโอ DLIT, หนังสือเรียนอิเล็กทรอนิกส์ และใบงานจาก Google Drive ได้อย่างง่ายดาย
-          </p>
-        </div>
-        <div class="feature-card card">
-          <div class="feature-icon icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 17L9 10M15 17L15 13M3 21H21M3 7L12 3L21 7M5 21L5 9M19 21L19 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">บันทึกและติดตามผล</h3>
-          <p class="feature-description">
-            บันทึกหลังสอน ติดตามความก้าวหน้านักเรียน และ Export รายงานสำหรับส่งผู้บริหาร
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+## 🧪 **วิธีทดสอบ:**
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container-narrow">
-      <h2 class="cta-title">พร้อมเริ่มต้นแล้วหรือยัง?</h2>
-      <p class="cta-description">
-        เข้าร่วมกับครูหลายร้อยคนที่ใช้ IDLPMS เพื่อปรับปรุงการสอนของพวกเขา
-      </p>
-      <div class="hero-cta">
-        <a href="auth/register.html" class="btn btn-primary">สร้างบัญชีฟรี</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">© 2025 IDLPMS - Integrated Digital Lesson Plan Management System</p>
-    </div>
-  </footer>
-
-  <!-- JS for smooth scrolling (optional) -->
-  <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+1. **สร้างโฟลเดอร์:**
+```
+   idlpms/
+   └── css/
+       └── pages/
+           └── landing.css  ← วางไฟล์ตรงนี้
