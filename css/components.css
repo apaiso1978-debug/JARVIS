@@ -1,0 +1,12 @@
+/* Cards */
+.card               → Border only, No shadow
+.card-subject       → ขอบสี + Hover Glow
+.card-lesson        → ขอบบาง + สีวิชา
+
+/* Buttons */
+.btn-primary        → Solid Blue
+.btn-subject        → สีตามวิชา
+
+/* Icons */
+.icon               → 36px, Outline (stroke-width: 1.5)
+.icon-subject       → สีตามวิชา
