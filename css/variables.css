@@ -1,0 +1,12 @@
+/* สี 10 วิชา */
+--subject-guidance: #EF4444
+--subject-history: #EC4899
+--subject-math: #6366F1
+
+/* Spacing แบบ Compact */
+--space-4: 16px  (Card Padding)
+--space-6: 24px  (Section Padding)
+
+/* Font Weight */
+--font-light: 300  (หลัก)
+--font-normal: 400
