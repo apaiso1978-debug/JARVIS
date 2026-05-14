@@ -1,18 +1,463 @@
-<link rel="stylesheet" href="css/pages/landing.css">
-```
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JARVIS | Google Drive Management Information</title>
+  <meta name="description" content="JARVIS information page for managing Google Drive files, folders, sharing, storage, and security." />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: rgba(15, 23, 42, 0.88);
+      --card: rgba(30, 41, 59, 0.78);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --blue: #38bdf8;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #fb7185;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
 
-### **2. css/pages/landing.css:**
-- เอา CSS ทั้งหมดจาก `<style>` มาใส่ไฟล์นี้
-- มี Comment แบ่งส่วนชัดเจน
-- Responsive ครบ
+    * {
+      box-sizing: border-box;
+    }
 
----
+    html {
+      scroll-behavior: smooth;
+    }
 
-## 🧪 **วิธีทดสอบ:**
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 32%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.14), transparent 30%),
+        radial-gradient(circle at bottom, rgba(245, 158, 11, 0.10), transparent 34%),
+        var(--bg);
+      line-height: 1.65;
+    }
 
-1. **สร้างโฟลเดอร์:**
-```
-   idlpms/
-   └── css/
-       └── pages/
-           └── landing.css  ← วางไฟล์ตรงนี้
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 44px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #031018;
+      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: clamp(28px, 5vw, 52px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(34, 197, 94, 0.08)), var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border: 1px solid rgba(56, 189, 248, 0.34);
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #bae6fd;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 18px 0 12px;
+      font-size: clamp(34px, 7vw, 70px);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 820px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      color: #021018;
+      background: var(--blue);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border);
+    }
+
+    .section-title {
+      margin: 38px 0 16px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.025em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      min-height: 100%;
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0 0 9px;
+      line-height: 1.22;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card ul,
+    .checklist {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .metric {
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      color: var(--blue);
+    }
+
+    .link-card {
+      display: block;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.72);
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .link-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+
+    .link-card span {
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .warning {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(245, 158, 11, 0.34);
+      background: rgba(245, 158, 11, 0.12);
+      color: #fde68a;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.74);
+      border: 1px solid var(--border);
+    }
+
+    .table th,
+    .table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      color: #e0f2fe;
+      background: rgba(56, 189, 248, 0.10);
+    }
+
+    .table td {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--soft);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">J</div>
+        <div>JARVIS</div>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#overview">ภาพรวม</a>
+        <a href="#links">ลิงก์สำคัญ</a>
+        <a href="#workflow">ขั้นตอนทำงาน</a>
+        <a href="#security">ความปลอดภัย</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="overview">
+        <span class="badge">Google Drive Management Information</span>
+        <h1>ศูนย์ข้อมูลสำหรับบริหารจัดการ Google Drive</h1>
+        <p class="lead">
+          หน้า Information สำหรับรวบรวมช่องทางเข้าใช้งาน ข้อมูลที่ต้องตรวจสอบ ขั้นตอนจัดการไฟล์ และแนวทางความปลอดภัยของ Google Drive ภายใต้ระบบ JARVIS
+        </p>
+        <div class="actions">
+          <a class="button" href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener">เปิด My Drive</a>
+          <a class="button secondary" href="https://drive.google.com/settings/storage" target="_blank" rel="noopener">ตรวจสอบ Storage</a>
+        </div>
+        <div class="status">พร้อมใช้งานสำหรับจัดการข้อมูล</div>
+      </section>
+
+      <h2 class="section-title">ข้อมูลหลักที่ต้องบริหาร</h2>
+      <section class="grid">
+        <article class="card">
+          <h3>Files</h3>
+          <p>ตรวจสอบไฟล์เอกสาร รูปภาพ วิดีโอ ไฟล์งาน และไฟล์สำรองที่อยู่ใน Google Drive</p>
+          <ul>
+            <li>ค้นหาไฟล์สำคัญ</li>
+            <li>ย้ายไฟล์เข้าหมวดหมู่</li>
+            <li>ลบไฟล์ซ้ำหรือไฟล์ไม่จำเป็น</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Folders</h3>
+          <p>จัดโครงสร้างโฟลเดอร์ให้ค้นหาง่าย แบ่งตามงาน วิชา โปรเจกต์ หรือปีการศึกษา</p>
+          <ul>
+            <li>ตั้งชื่อโฟลเดอร์ให้ชัดเจน</li>
+            <li>แยกไฟล์ส่วนตัวกับไฟล์งาน</li>
+            <li>ทำโฟลเดอร์ Archive</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Sharing</h3>
+          <p>ตรวจสอบการแชร์ไฟล์และสิทธิ์เข้าถึง เพื่อป้องกันข้อมูลรั่วไหลหรือแชร์ผิดคน</p>
+          <ul>
+            <li>ตรวจสิทธิ์ Viewer / Commenter / Editor</li>
+            <li>ยกเลิกลิงก์สาธารณะที่ไม่จำเป็น</li>
+            <li>จำกัดการเข้าถึงเฉพาะผู้เกี่ยวข้อง</li>
+          </ul>
+        </article>
+      </section>
+
+      <h2 class="section-title" id="links">ลิงก์สำคัญ</h2>
+      <section class="grid two">
+        <a class="link-card" href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener">
+          <strong>Google Drive - My Drive</strong>
+          <span>เข้าใช้งานไฟล์และโฟลเดอร์หลักทั้งหมด</span>
+        </a>
+        <a class="link-card" href="https://drive.google.com/drive/shared-with-me" target="_blank" rel="noopener">
+          <strong>Shared with me</strong>
+          <span>ดูไฟล์ที่ผู้อื่นแชร์มาให้</span>
+        </a>
+        <a class="link-card" href="https://drive.google.com/drive/recent" target="_blank" rel="noopener">
+          <strong>Recent files</strong>
+          <span>ดูไฟล์ที่เปิดหรือแก้ไขล่าสุด</span>
+        </a>
+        <a class="link-card" href="https://drive.google.com/drive/trash" target="_blank" rel="noopener">
+          <strong>Trash</strong>
+          <span>ตรวจสอบและกู้คืนไฟล์ที่ถูกลบ</span>
+        </a>
+        <a class="link-card" href="https://drive.google.com/settings/storage" target="_blank" rel="noopener">
+          <strong>Storage</strong>
+          <span>ตรวจสอบพื้นที่ใช้งานและจัดการไฟล์ขนาดใหญ่</span>
+        </a>
+        <a class="link-card" href="https://myaccount.google.com/security" target="_blank" rel="noopener">
+          <strong>Google Account Security</strong>
+          <span>ตรวจสอบความปลอดภัยบัญชี Google</span>
+        </a>
+      </section>
+
+      <h2 class="section-title" id="workflow">Workflow แนะนำ</h2>
+      <section class="grid two">
+        <article class="card">
+          <h3>Daily Check</h3>
+          <p>ตรวจไฟล์ล่าสุดและไฟล์ที่แชร์เข้ามา เพื่อคัดแยกงานสำคัญ</p>
+          <ul class="checklist">
+            <li>เปิด Recent files</li>
+            <li>ตรวจ Shared with me</li>
+            <li>ย้ายไฟล์เข้าหมวดหมู่</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Weekly Cleanup</h3>
+          <p>ทำความสะอาดพื้นที่เก็บข้อมูล ลบไฟล์ซ้ำ และจัดระเบียบโฟลเดอร์</p>
+          <ul class="checklist">
+            <li>ตรวจไฟล์ขนาดใหญ่</li>
+            <li>ล้าง Trash</li>
+            <li>ตรวจสิทธิ์การแชร์</li>
+          </ul>
+        </article>
+      </section>
+
+      <h2 class="section-title" id="security">Security Checklist</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>หัวข้อ</th>
+            <th>สิ่งที่ต้องตรวจสอบ</th>
+            <th>ความถี่</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shared Links</td>
+            <td>ปิดลิงก์แบบ Anyone with the link หากไม่จำเป็น</td>
+            <td>ทุกสัปดาห์</td>
+          </tr>
+          <tr>
+            <td>Editors</td>
+            <td>ตรวจว่าใครมีสิทธิ์แก้ไขไฟล์สำคัญ</td>
+            <td>ทุกสัปดาห์</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>ลบไฟล์ซ้ำ ไฟล์เก่า หรือไฟล์ขนาดใหญ่ที่ไม่ใช้งาน</td>
+            <td>ทุกเดือน</td>
+          </tr>
+          <tr>
+            <td>Account</td>
+            <td>ตรวจ 2-Step Verification และอุปกรณ์ที่ล็อกอินอยู่</td>
+            <td>ทุกเดือน</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning">
+        หมายเหตุ: หน้านี้เป็น Information Dashboard สำหรับเข้าถึงและจัดระเบียบ Google Drive เท่านั้น ยังไม่ได้เชื่อมต่อ API เพื่ออ่านหรือแก้ไขไฟล์อัตโนมัติ
+      </div>
+    </main>
+
+    <footer>
+      JARVIS Google Drive Information Center • Built for BOY THE TEACH
+    </footer>
+  </div>
+</body>
+</html>
